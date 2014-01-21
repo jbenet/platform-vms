@@ -13,12 +13,18 @@ There's a bunch of [Vagrantfiles](http://docs.vagrantup.com/v2/vagrantfile/index
 ### Platforms supported
 
 Breakdown by `arch` (really, os + arch), and by `stack`.
-(All platforms include implicit "base" stack).
+(All platforms include simple "base" stack).
 
-- linux amd64 (ubuntu)
-  - golang
-- linux i386 (ubuntu)
-  - golang
+```
+├── amd64
+│   └── linux_ubuntu
+│       ├── base
+│       └── go
+└── i386
+    └── linux_ubuntu
+        ├── base
+        └── go
+```
 
 ### Platform wish list
 

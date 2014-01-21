@@ -1,4 +1,4 @@
-# arch-vms
+# platform-vms
 
 Sometimes you write software meant to run on multiple architectures. Ideally, you could program, compile, debug, and test other architectures directly from yours. But that's currently not always (or remotely) true. This is a repository to make it easy to work with vms of various platforms. You might use it to do:
 

@@ -1,0 +1,33 @@
+# github.com/jbenet/platform-vms/amd64/linux_ubuntu/go
+
+Vagrant.configure("2") do |config|
+  config.vm.box = 'precise64'
+  config.vm.box_url = 'http://files.vagrantup.com/precise64.box'
+
+  # synced files
+  # config.vm.synced_folder ".", "/home/vagrant/go/src/<path to your app>"
+
+  # increase VM memory to 512 MB
+  config.vm.provider "virtualbox" do |v|
+    v.customize ["modifyvm", :id, "--memory", "512"]
+  end
+
+  # run provisioning scripts
+  config.vm.provision :shell, :inline => <<-eos
+
+    # install go
+    echo "installing go..."
+    cd /tmp
+    wget -q https://go.googlecode.com/files/go1.2.linux-amd64.tar.gz
+    tar xf go1.2.linux-amd64.tar.gz
+    mv go /usr/local/go
+
+    # setup go workspace
+    mkdir /home/vagrant/go
+    echo "export GOROOT=/usr/local/go" >> /home/vagrant/.bashrc
+    echo "export GOPATH=/home/vagrant/go" >> /home/vagrant/.bashrc
+    echo "export PATH=\\$PATH:\\$GOROOT/bin:\\$GOPATH/bin"  >> /home/vagrant/.bashrc
+
+  eos
+
+end

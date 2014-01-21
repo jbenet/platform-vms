@@ -54,12 +54,12 @@ stacks wanted:
 
 1. [Install Virtualbox](https://www.virtualbox.org/wiki/Downloads)
 1. [Install Vagrant](http://www.vagrantup.com/)
-1. [Install this repo:]
+1. Install this repo:
 
     git clone https://github.com/jbenet/platform-vms
 
 ## Usage
 
-    cd <arch-of-your-choice>/<stack-of-your-choice>
+    cd <arch>/<os>/<stack>
     vagrant up
     vagrant ssh
